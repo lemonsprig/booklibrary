@@ -10,3 +10,10 @@ Future improvements
 * Add accessibility
   * aria labels
   * modal navigation and dismiss through keyboard or clicking off modal
+* Persistent storage
+* Log in functionality - tied back to storage
+* Check responsiveness at different break points
+* Star rating system when a book is marked as read
+* Book lookup against a book API when adding a book.
+  * get page count
+  * add book cover image as card background 
