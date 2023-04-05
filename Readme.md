@@ -8,5 +8,5 @@ Things learnt
 
 Future improvements
 * Add accessibility
-** aria labels
-** modal navigation and dismiss through keyboard or clicking off modal
++ aria labels
++  modal navigation and dismiss through keyboard or clicking off modal
