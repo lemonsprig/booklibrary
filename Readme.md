@@ -17,3 +17,7 @@ Future improvements
 * Book lookup against a book API when adding a book.
   * get page count
   * add book cover image as card background 
+* Add library info
+  * total book count
+  * read / unread count
+  * filter display unread / read
