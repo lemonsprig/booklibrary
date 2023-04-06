@@ -155,29 +155,38 @@ function displayCard(book) {
   card.appendChild(cardFooter);
 
   const toggleLabel = document.createElement("label");
-  toggleLabel.classList.add("toggle");
+  toggleLabel.classList.add("toggle1");
+  toggleLabel.textContent = "Have Read?";
   cardFooter.appendChild(toggleLabel);
-
-  const labelForToggle = document.createElement("span");
-  labelForToggle.classList.add("toggle-label");
-  labelForToggle.textContent = "Read?";
-  toggleLabel.appendChild(labelForToggle);
 
   const toggleCheckbox = document.createElement("input");
   toggleCheckbox.setAttribute("type", "checkbox");
-  toggleCheckbox.classList.add("toggle-checkbox");
+  toggleCheckbox.setAttribute("name", "toggle");
+  toggleCheckbox.classList.add("toggle-input");
   book.read
     ? (toggleCheckbox.checked = true)
     : (toggleCheckbox.checked = false);
   toggleLabel.appendChild(toggleCheckbox);
 
-  const toggleSwitch = document.createElement("div");
-  toggleSwitch.classList.add("toggle-switch");
-  toggleLabel.appendChild(toggleSwitch);
+  const toggleDisplay = document.createElement("span");
+  toggleDisplay.classList.add("toggle-display");
+  toggleDisplay.setAttribute("hidden", "true");
+  toggleLabel.appendChild(toggleDisplay);
+
+  const onIcon = document.createElement("i");
+  onIcon.classList.add("bi", "bi-check");
+  onIcon.setAttribute("aria-hidden", "true");
+  toggleDisplay.appendChild(onIcon);
+
+  const offIcon = document.createElement("i");
+  offIcon.classList.add("bi", "bi-x");
+  offIcon.setAttribute("aria-hidden", "true");
+  toggleDisplay.appendChild(offIcon);
 
   const deleteBookButton = document.createElement("button");
   deleteBookButton.setAttribute("type", "button");
   deleteBookButton.classList.add("delete-button");
+  deleteBookButton.setAttribute("aria-label", "Delete Book");
   deleteBookButton.innerHTML = "<i class='bi bi-trash3'></i>";
   cardFooter.appendChild(deleteBookButton);
 
