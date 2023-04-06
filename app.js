@@ -39,7 +39,13 @@ const demoData = [
     pages: 290,
     read: true,
   },
-  { id: 1, title: "Dad Jokes", author: "U.B. Laffing", pages: 50, read: true },
+  {
+    id: 1,
+    title: "Dad Jokes",
+    author: "U.B. Laffing",
+    pages: 50,
+    read: true,
+  },
   {
     id: 2,
     title: "Lost in Time",
@@ -118,7 +124,7 @@ function displayCard(book) {
   cardHeading.classList.add("card-header");
   card.appendChild(cardHeading);
 
-  const title = document.createElement("h3");
+  const title = document.createElement("h2");
   title.textContent = book.title;
   cardHeading.appendChild(title);
 

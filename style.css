@@ -100,6 +100,10 @@ main {
   margin-bottom: 1rem;
 }
 
+.card-header h2 {
+  font-size: 1.25rem;
+}
+
 .card-content {
   display: flex;
   flex-direction: column;
