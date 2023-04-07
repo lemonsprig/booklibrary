@@ -61,6 +61,7 @@ myLibrary = demoData.map(
 
 // openModal
 function openModal() {
+  clearForm();
   modal.classList.remove("hidden");
 }
 
