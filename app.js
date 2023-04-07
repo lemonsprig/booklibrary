@@ -25,9 +25,7 @@ function Book(id, title, author, pages, read) {
 }
 
 Book.prototype.toggleRead = function () {
-  console.log(this.read);
   this.read = !this.read;
-  console.log(this.read);
 };
 
 // initial demo data
@@ -97,7 +95,6 @@ function clearForm() {
 
 function deleteBook(id) {
   const card = document.querySelector(`[data-id="${id}"]`);
-  console.log(`[data-id="${id}"]`);
   card.remove();
 
   // delete from the library
@@ -105,9 +102,11 @@ function deleteBook(id) {
 }
 
 function handleClick(e) {
-  console.log(e);
   const id = e.target.closest(".card").getAttribute("data-id");
-  if (e.target.parentElement.classList.contains("delete-button")) {
+  if (
+    e.target.parentElement.classList.contains("delete-button") ||
+    e.target.classList.contains("delete-button")
+  ) {
     deleteBook(id);
   }
   if (e.target.className === "toggle-checkbox") {
@@ -193,5 +192,4 @@ function displayCard(book) {
   cardContainer.appendChild(card);
 }
 
-console.log(myLibrary);
 myLibrary.forEach(displayCard);
