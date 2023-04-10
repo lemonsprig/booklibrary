@@ -6,6 +6,7 @@ const inputAuthor = document.querySelector("#author");
 const inputPages = document.querySelector("#pages");
 const inputRead = document.querySelector("#read");
 const cardContainer = document.querySelector(".card-container");
+const closeBtn = document.querySelector(".btn-close");
 
 // event listeners
 document.querySelector("#addBook").addEventListener("click", openModal);
@@ -63,11 +64,40 @@ myLibrary = demoData.map(
 function openModal() {
   clearForm();
   modal.classList.remove("hidden");
+  // inputTitle.focus();
+  //get list of focusable elements
+  const focusableElements = modal.querySelectorAll(
+    'button, [href], input, select, textarea, [tanindex]:not([tabindex="-1"])'
+  );
+  const firstFocusable = focusableElements[0];
+  const lastFocusable = focusableElements[focusableElements.length - 1];
+  firstFocusable.focus();
+  modal.addEventListener("keydown", (e) => {
+    modalKeyTrap(e, firstFocusable, lastFocusable);
+  });
 }
 
 // closeModal
 function closeModal() {
   modal.classList.add("hidden");
+}
+
+function modalKeyTrap(e, firstFocusable, lastFocusable) {
+  if (e.key === "Escape") {
+    closeModal();
+    console.log(e.key);
+  }
+
+  if (e.key !== "Tab") return;
+  if (e.shiftKey) {
+    if (document.activeElement === firstFocusable) {
+      lastFocusable.focus();
+    }
+  } else {
+    if (document.activeElement === lastFocusable) {
+      firstFocusable.focus();
+    }
+  }
 }
 
 // addNewBook
