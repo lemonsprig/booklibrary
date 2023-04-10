@@ -74,6 +74,12 @@ function openModal() {
   modal.addEventListener("keydown", (e) => {
     modalKeyTrap(e, firstFocusable, lastFocusable);
   });
+  document.querySelector("section.modal").addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (e.target.className === "modal") {
+      closeModal();
+    }
+  });
 }
 
 // closeModal
