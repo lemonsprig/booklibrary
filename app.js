@@ -64,7 +64,6 @@ myLibrary = demoData.map(
 function openModal() {
   clearForm();
   modal.classList.remove("hidden");
-  // inputTitle.focus();
   //get list of focusable elements
   const focusableElements = modal.querySelectorAll(
     'button, [href], input, select, textarea, [tanindex]:not([tabindex="-1"])'
