@@ -52,6 +52,13 @@ const demoData = [
     pages: 178,
     read: false,
   },
+  {
+    id: 3,
+    title: "The chronicles of Lord Selbington the 3rd",
+    author: "N. Owen and L. Glover",
+    pages: 9999,
+    read: false,
+  },
 ];
 
 // push demo data into myLibrary as book objects
@@ -62,15 +69,18 @@ myLibrary = demoData.map(
 
 // openModal
 function openModal() {
+  //get active element
   clearForm();
   modal.classList.remove("hidden");
   //get list of focusable elements
   const focusableElements = modal.querySelectorAll(
     'button, [href], input, select, textarea, [tanindex]:not([tabindex="-1"])'
   );
+  console.log(focusableElements);
   const firstFocusable = focusableElements[0];
   const lastFocusable = focusableElements[focusableElements.length - 1];
   firstFocusable.focus();
+  console.log(firstFocusable);
   modal.addEventListener("keydown", (e) => {
     modalKeyTrap(e, firstFocusable, lastFocusable);
   });
@@ -97,10 +107,12 @@ function modalKeyTrap(e, firstFocusable, lastFocusable) {
   if (e.shiftKey) {
     if (document.activeElement === firstFocusable) {
       lastFocusable.focus();
+      e.preventDefault();
     }
   } else {
     if (document.activeElement === lastFocusable) {
       firstFocusable.focus();
+      e.preventDefault();
     }
   }
 }
