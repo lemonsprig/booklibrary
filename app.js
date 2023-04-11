@@ -15,6 +15,7 @@ addBookForm.addEventListener("submit", addNewBook);
 cardContainer.addEventListener("click", handleClick);
 
 let myLibrary = [];
+let currentActiveElement;
 
 // Book Constructor
 function Book(id, title, author, pages, read) {
@@ -70,19 +71,20 @@ myLibrary = demoData.map(
 // openModal
 function openModal() {
   //get active element
+  currentActiveElement = document.activeElement;
   clearForm();
   modal.classList.remove("hidden");
+
   //get list of focusable elements
   const focusableElements = modal.querySelectorAll(
     'button, [href], input, select, textarea, [tanindex]:not([tabindex="-1"])'
   );
-  console.log(focusableElements);
   const firstFocusable = focusableElements[0];
   const lastFocusable = focusableElements[focusableElements.length - 1];
   firstFocusable.focus();
-  console.log(firstFocusable);
+
   modal.addEventListener("keydown", (e) => {
-    modalKeyTrap(e, firstFocusable, lastFocusable);
+    modalKeyTrap(e, firstFocusable, lastFocusable, currentActiveElement);
   });
   document.querySelector("section.modal").addEventListener("click", (e) => {
     e.stopPropagation();
@@ -95,12 +97,13 @@ function openModal() {
 // closeModal
 function closeModal() {
   modal.classList.add("hidden");
+  currentActiveElement.focus();
 }
 
 function modalKeyTrap(e, firstFocusable, lastFocusable) {
   if (e.key === "Escape") {
+    e.preventDefault();
     closeModal();
-    console.log(e.key);
   }
 
   if (e.key !== "Tab") return;
