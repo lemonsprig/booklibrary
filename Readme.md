@@ -7,11 +7,17 @@ Things learnt
 - building a modal
 - building an accessible toggle switch with a text label
 
-Future improvements
+Enhancements
 
-- Add accessibility
-  - aria labels
-  - modal navigation and dismiss through keyboard or clicking off modal
+- Accessibility incorportated including
+  - Aria Labels
+  - Modal navigation and trap
+  - Escape key to close modal
+  - Close modal by clicking on backdrop
+  - Return focus to calling element on modal close.
+
+Future Enhancements
+
 - Persistent storage
 - Log in functionality - tied back to storage
 - Check responsiveness at different break points
