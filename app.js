@@ -30,17 +30,6 @@ class Book {
     this.read = !this.read;
   }
 }
-// function Book(id, title, author, pages, read) {
-//   this.id = id;
-//   this.title = title;
-//   this.author = author;
-//   this.pages = pages;
-//   this.read = read;
-// }
-
-// Book.prototype.toggleRead = function () {
-//   this.read = !this.read;
-// };
 
 // initial demo data
 const demoData = [
